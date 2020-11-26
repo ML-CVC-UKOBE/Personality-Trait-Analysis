@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+</head>
+<body>
+<script>
+    function checkform() {
+        var tab;
+        tab = document.getElementById("tab");
+        for (var i = 1; i < 12; i=i+2) {
+            var active;
+            active = false;
+            for (var j = 1; j < tab.rows[i].cells.length; j++) {
+                active = active || tab.rows[i].cells[j].firstChild.checked;
+                if (active == true) {
+                    break;
+                }
+            }
+            if (active == false) {
+                alert("Missing field");
+                return false
+            }
+        }
+        return true
+    }
+</script>
+<div class="container">
+    <div class="row align-middle" style="vertical-align:center; margin: 1em 1em 0 0;">
+        <div class="col" style="margin:auto; text-align:center;"><img src="/static/logos/logouab.jpg" style="height:4em"/></div>
+        <div class="col" style="margin:auto; text-align:center;"><img src="/static/logos/cvclogo.gif" style="height:4em"/></div>
+        <div class="col" style="margin:auto; text-align:center;"><img src="/static/logos/logoise.svg" style="height:4em"/></div>
+    </div>
+    <div class="row" style="text-align:center; margin: 2em 1em 1em 1em;">
+        <div class="col">
+        <h1>Which image would you rather share?</h1>
+        <br>
+        <form id="form" action="/imgquery" method="post" onsubmit="return checkform();">
+        <table id="tab" class="table">
+            {% for item in items %}
+                <tr>
+                    <td></td>
+                    <td><img src="{{item.left}}"/></td>
+                    <td><img src="{{item.right}}"/></td>
+                </tr>
+                <tr>
+                    <td>{{loop.index}}. Please choose one of the two images:</td>
+                    <td><input type="radio" name="{{item.name}}" value="{{item.value_left}}"/></td>
+                    <td><input type="radio" name="{{item.name}}" value="{{item.value_right}}"/></td>
+                </tr>
+            {% endfor %}
+        </table>
+        <input id="user_id" name="user_id" value="{{user_id}}" type="hidden"/>
+        <input id="submit" name="submit" text="Submit" type="submit"/>
+        </form></div>
+    </div>
+</div>
+<footer>
+    <hr>
+    <div class="container" style="text-align:justify">
+    <em class="text-muted" style="margin-bottom:1em;">
+        This project is supported by the Spanish project TIN2015-65464-R (MINECO/FEDER), and
+        the 2016FI B 01163 grant of Generalitat de Catalunya. We also gratefully acknowledge the support of NVIDIA
+        Corporation with the donation of a Tesla K40 GPU and a GTX TITAN GPU, used for this research.
+    </em>
+    <img style="width:100%;" src="static/logos/logos.jpg" />
+    </div>
+    <hr>
+</footer>
+</body>
+</html>

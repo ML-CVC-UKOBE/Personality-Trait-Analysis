@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+</head>
+<script>
+    function checkform() {
+        var tab;
+        tab = document.getElementById("tab");
+        for (var i = 1; i < 41; i++) {
+            var active;
+            active = false;
+            for (var j = 2; j < tab.rows[i].cells.length; j++) {
+                active = active || tab.rows[i].cells[j].firstChild.checked;
+                if (active == true) {
+                    break;
+				}
+			}
+			if (active == false) {
+                alert("Missing field");
+                return false
+			}
+		}
+		return true
+	}
+</script>
+<body>
+<div class="container">
+    <div class="row align-middle" style="vertical-align:center; margin: 1em 1em 0 0;">
+        <div class="col" style="margin:auto; text-align:center;"><img src="/static/logos/logouab.jpg" style="height:4em"/></div>
+        <div class="col" style="margin:auto; text-align:center;"><img src="/static/logos/cvclogo.gif" style="height:4em"/></div>
+        <div class="col" style="margin:auto; text-align:center;"><img src="/static/logos/logoise.svg" style="height:4em"/></div>
+    </div>
+    <div class="row" style="margin:2em 1em 1em 1em;">
+        <h1>Personality Questionnaire</h1><br>
+    </div>
+    <div class="row" style="margin:1em;">
+        Please answer all the questions. No personal data is stored whatsoever.
+    </div>
+    <div class="row">
+        <div class="col">
+        <form method="POST" action="/submit" onsubmit="return checkform()">
+
+            <table id="tab" class="table table-striped table-sm">
+
+            <thead>
+            <th></th>
+            <th></th>
+            <th><small>Disagree</small></th>
+            <th></th>
+            <th><small>Neutral</small></th>
+            <th></th>
+            <th><small>Agree</small></th>
+            </thead>
+
+            <tr><td>1. </td></td><td>I am the life of the party.</td>
+            <td align="center"><input type="radio" name="EXT1" value="1"/></td>
+            <td align="center"><input type="radio" name="EXT1" value="2"/></td>
+            <td align="center"><input type="radio" name="EXT1" value="3"/></td>
+            <td align="center"><input type="radio" name="EXT1" value="4"/></td>
+            <td align="center"><input type="radio" name="EXT1" value="5"/></td>
+            </tr>
+            <tr><td>2. </td><td>I feel little concern for others.</td>
+            <td align="center"><input type="radio" name="AGR1" value="1"/></td>
+            <td align="center"><input type="radio" name="AGR1" value="2"/></td>
+            <td align="center"><input type="radio" name="AGR1" value="3"/></td>
+            <td align="center"><input type="radio" name="AGR1" value="4"/></td>
+            <td align="center"><input type="radio" name="AGR1" value="5"/></td>
+            </tr>
+            <tr ><td>3. </td><td>I am always prepared.</td>
+            <td align="center"><input type="radio" name="CSN1" value="1"/></td>
+            <td align="center"><input type="radio" name="CSN1" value="2"/></td>
+            <td align="center"><input type="radio" name="CSN1" value="3"/></td>
+            <td align="center"><input type="radio" name="CSN1" value="4"/></td>
+            <td align="center"><input type="radio" name="CSN1" value="5"/></td>
+            </tr>
+            <tr><td>4. </td><td>I get stressed out easily.</td>
+            <td align="center"><input type="radio" name="EST1" value="1"/></td>
+            <td align="center"><input type="radio" name="EST1" value="2"/></td>
+            <td align="center"><input type="radio" name="EST1" value="3"/></td>
+            <td align="center"><input type="radio" name="EST1" value="4"/></td>
+            <td align="center"><input type="radio" name="EST1" value="5"/></td>
+            </tr>
+            <tr ><td>5. </td><td>I have a rich vocabulary.</td>
+            <td align="center"><input type="radio" name="OPN1" value="1"/></td>
+            <td align="center"><input type="radio" name="OPN1" value="2"/></td>
+            <td align="center"><input type="radio" name="OPN1" value="3"/></td>
+            <td align="center"><input type="radio" name="OPN1" value="4"/></td>
+            <td align="center"><input type="radio" name="OPN1" value="5"/></td>
+            </tr>
+            <tr><td>6. </td><td>I don&#39;t talk a lot.</td>
+            <td align="center"><input type="radio" name="EXT2" value="1"/></td>
+            <td align="center"><input type="radio" name="EXT2" value="2"/></td>
+            <td align="center"><input type="radio" name="EXT2" value="3"/></td>
+            <td align="center"><input type="radio" name="EXT2" value="4"/></td>
+            <td align="center"><input type="radio" name="EXT2" value="5"/></td>
+            </tr>
+            <tr ><td>7. </td><td>I am interested in people.</td>
+            <td align="center"><input type="radio" name="AGR2" value="1"/></td>
+            <td align="center"><input type="radio" name="AGR2" value="2"/></td>
+            <td align="center"><input type="radio" name="AGR2" value="3"/></td>
+            <td align="center"><input type="radio" name="AGR2" value="4"/></td>
+            <td align="center"><input type="radio" name="AGR2" value="5"/></td>
+            </tr>
+            <tr><td>8. </td><td>I leave my belongings around.</td>
+            <td align="center"><input type="radio" name="CSN2" value="1"/></td>
+            <td align="center"><input type="radio" name="CSN2" value="2"/></td>
+            <td align="center"><input type="radio" name="CSN2" value="3"/></td>
+            <td align="center"><input type="radio" name="CSN2" value="4"/></td>
+            <td align="center"><input type="radio" name="CSN2" value="5"/></td>
+            </tr>
+            <tr ><td>9. </td><td>I am relaxed most of the time.</td>
+            <td align="center"><input type="radio" name="EST2" value="1"/></td>
+            <td align="center"><input type="radio" name="EST2" value="2"/></td>
+            <td align="center"><input type="radio" name="EST2" value="3"/></td>
+            <td align="center"><input type="radio" name="EST2" value="4"/></td>
+            <td align="center"><input type="radio" name="EST2" value="5"/></td>
+            </tr>
+            <tr><td>10. </td><td>I have difficulty understanding abstract ideas.</td>
+            <td align="center"><input type="radio" name="OPN2" value="1"/></td>
+            <td align="center"><input type="radio" name="OPN2" value="2"/></td>
+            <td align="center"><input type="radio" name="OPN2" value="3"/></td>
+            <td align="center"><input type="radio" name="OPN2" value="4"/></td>
+            <td align="center"><input type="radio" name="OPN2" value="5"/></td>
+            </tr>
+            <tr ><td>11. </td><td>I feel comfortable around people.</td>
+            <td align="center"><input type="radio" name="EXT3" value="1"/></td>
+            <td align="center"><input type="radio" name="EXT3" value="2"/></td>
+            <td align="center"><input type="radio" name="EXT3" value="3"/></td>
+            <td align="center"><input type="radio" name="EXT3" value="4"/></td>
+            <td align="center"><input type="radio" name="EXT3" value="5"/></td>
+            </tr>
+            <tr><td>12. </td><td>I insult people.</td>
+            <td align="center"><input type="radio" name="AGR3" value="1"/></td>
+            <td align="center"><input type="radio" name="AGR3" value="2"/></td>
+            <td align="center"><input type="radio" name="AGR3" value="3"/></td>
+            <td align="center"><input type="radio" name="AGR3" value="4"/></td>
+            <td align="center"><input type="radio" name="AGR3" value="5"/></td>
+            </tr>
+            <tr ><td>13. </td><td>I pay attention to details.</td>
+            <td align="center"><input type="radio" name="CSN3" value="1"/></td>
+            <td align="center"><input type="radio" name="CSN3" value="2"/></td>
+            <td align="center"><input type="radio" name="CSN3" value="3"/></td>
+            <td align="center"><input type="radio" name="CSN3" value="4"/></td>
+            <td align="center"><input type="radio" name="CSN3" value="5"/></td>
+            </tr>
+            <tr><td>14. </td><td>I worry about things.</td>
+            <td align="center"><input type="radio" name="EST3" value="1"/></td>
+            <td align="center"><input type="radio" name="EST3" value="2"/></td>
+            <td align="center"><input type="radio" name="EST3" value="3"/></td>
+            <td align="center"><input type="radio" name="EST3" value="4"/></td>
+            <td align="center"><input type="radio" name="EST3" value="5"/></td>
+            </tr>
+            <tr ><td>15. </td><td>I have a vivid imagination.</td>
+            <td align="center"><input type="radio" name="OPN3" value="1"/></td>
+            <td align="center"><input type="radio" name="OPN3" value="2"/></td>
+            <td align="center"><input type="radio" name="OPN3" value="3"/></td>
+            <td align="center"><input type="radio" name="OPN3" value="4"/></td>
+            <td align="center"><input type="radio" name="OPN3" value="5"/></td>
+            </tr>
+            <tr><td>16. </td><td>I keep in the background.</td>
+            <td align="center"><input type="radio" name="EXT4" value="1"/></td>
+            <td align="center"><input type="radio" name="EXT4" value="2"/></td>
+            <td align="center"><input type="radio" name="EXT4" value="3"/></td>
+            <td align="center"><input type="radio" name="EXT4" value="4"/></td>
+            <td align="center"><input type="radio" name="EXT4" value="5"/></td>
+            </tr>
+            <tr ><td>17. </td><td>I sympathize with others&#39; feelings.</td>
+            <td align="center"><input type="radio" name="AGR4" value="1"/></td>
+            <td align="center"><input type="radio" name="AGR4" value="2"/></td>
+            <td align="center"><input type="radio" name="AGR4" value="3"/></td>
+            <td align="center"><input type="radio" name="AGR4" value="4"/></td>
+            <td align="center"><input type="radio" name="AGR4" value="5"/></td>
+            </tr>
+            <tr><td>18. </td><td>I make a mess of things.</td>
+            <td align="center"><input type="radio" name="CSN4" value="1"/></td>
+            <td align="center"><input type="radio" name="CSN4" value="2"/></td>
+            <td align="center"><input type="radio" name="CSN4" value="3"/></td>
+            <td align="center"><input type="radio" name="CSN4" value="4"/></td>
+            <td align="center"><input type="radio" name="CSN4" value="5"/></td>
+            </tr>
+            <tr ><td>19. </td><td>I seldom feel sad.</td>
+            <td align="center"><input type="radio" name="EST4" value="1"/></td>
+            <td align="center"><input type="radio" name="EST4" value="2"/></td>
+            <td align="center"><input type="radio" name="EST4" value="3"/></td>
+            <td align="center"><input type="radio" name="EST4" value="4"/></td>
+            <td align="center"><input type="radio" name="EST4" value="5"/></td>
+            </tr>
+            <tr><td>20. </td><td>I am not interested in abstract ideas.</td>
+            <td align="center"><input type="radio" name="OPN4" value="1"/></td>
+            <td align="center"><input type="radio" name="OPN4" value="2"/></td>
+            <td align="center"><input type="radio" name="OPN4" value="3"/></td>
+            <td align="center"><input type="radio" name="OPN4" value="4"/></td>
+            <td align="center"><input type="radio" name="OPN4" value="5"/></td>
+            </tr>
+            <tr ><td>21. </td><td>I start conversations.</td>
+            <td align="center"><input type="radio" name="EXT5" value="1"/></td>
+            <td align="center"><input type="radio" name="EXT5" value="2"/></td>
+            <td align="center"><input type="radio" name="EXT5" value="3"/></td>
+            <td align="center"><input type="radio" name="EXT5" value="4"/></td>
+            <td align="center"><input type="radio" name="EXT5" value="5"/></td>
+            </tr>
+            <tr><td>22. </td><td>I am not interested in other people&#39;s problems.</td>
+            <td align="center"><input type="radio" name="AGR5" value="1"/></td>
+            <td align="center"><input type="radio" name="AGR5" value="2"/></td>
+            <td align="center"><input type="radio" name="AGR5" value="3"/></td>
+            <td align="center"><input type="radio" name="AGR5" value="4"/></td>
+            <td align="center"><input type="radio" name="AGR5" value="5"/></td>
+            </tr>
+            <!--<tr ><td>I get chores done right away.</td>-->
+            <!--<td align="center"><input type="radio" name="CSN5" value="1"/></td>-->
+            <!--<td align="center"><input type="radio" name="CSN5" value="2"/></td>-->
+            <!--<td align="center"><input type="radio" name="CSN5" value="3"/></td>-->
+            <!--<td align="center"><input type="radio" name="CSN5" value="4"/></td>-->
+            <!--<td align="center"><input type="radio" name="CSN5" value="5"/></td>-->
+            <!--</tr>-->
+            <!--<tr><td>I am easily disturbed.</td>-->
+            <!--<td align="center"><input type="radio" name="EST5" value="1"/></td>-->
+            <!--<td align="center"><input type="radio" name="EST5" value="2"/></td>-->
+            <!--<td align="center"><input type="radio" name="EST5" value="3"/></td>-->
+            <!--<td align="center"><input type="radio" name="EST5" value="4"/></td>-->
+            <!--<td align="center"><input type="radio" name="EST5" value="5"/></td>-->
+            <!--</tr>-->
+            <tr ><td>23. </td><td>I have excellent ideas.</td>
+            <td align="center"><input type="radio" name="OPN5" value="1"/></td>
+            <td align="center"><input type="radio" name="OPN5" value="2"/></td>
+            <td align="center"><input type="radio" name="OPN5" value="3"/></td>
+            <td align="center"><input type="radio" name="OPN5" value="4"/></td>
+            <td align="center"><input type="radio" name="OPN5" value="5"/></td>
+            </tr>
+            <tr><td>24. </td><td>I have little to say.</td>
+            <td align="center"><input type="radio" name="EXT6" value="1"/></td>
+            <td align="center"><input type="radio" name="EXT6" value="2"/></td>
+            <td align="center"><input type="radio" name="EXT6" value="3"/></td>
+            <td align="center"><input type="radio" name="EXT6" value="4"/></td>
+            <td align="center"><input type="radio" name="EXT6" value="5"/></td>
+            </tr>
+            <!--<tr ><td>I have a soft heart.</td>-->
+            <!--<td align="center"><input type="radio" name="AGR6" value="1"/></td>-->
+            <!--<td align="center"><input type="radio" name="AGR6" value="2"/></td>-->
+            <!--<td align="center"><input type="radio" name="AGR6" value="3"/></td>-->
+            <!--<td align="center"><input type="radio" name="AGR6" value="4"/></td>-->
+            <!--<td align="center"><input type="radio" name="AGR6" value="5"/></td>-->
+            <!--</tr>-->
+            <tr><td>25. </td><td>I often forget to put things back in their proper place.</td>
+            <td align="center"><input type="radio" name="CSN6" value="1"/></td>
+            <td align="center"><input type="radio" name="CSN6" value="2"/></td>
+            <td align="center"><input type="radio" name="CSN6" value="3"/></td>
+            <td align="center"><input type="radio" name="CSN6" value="4"/></td>
+            <td align="center"><input type="radio" name="CSN6" value="5"/></td>
+            </tr>
+            <tr><td>26. </td><td>I get upset easily.</td>
+            <td align="center"><input type="radio" name="EST6" value="1"/></td>
+            <td align="center"><input type="radio" name="EST6" value="2"/></td>
+            <td align="center"><input type="radio" name="EST6" value="3"/></td>
+            <td align="center"><input type="radio" name="EST6" value="4"/></td>
+            <td align="center"><input type="radio" name="EST6" value="5"/></td>
+            </tr>
+            <tr><td>27. </td><td>I do not have a good imagination.</td>
+            <td align="center"><input type="radio" name="OPN6" value="1"/></td>
+            <td align="center"><input type="radio" name="OPN6" value="2"/></td>
+            <td align="center"><input type="radio" name="OPN6" value="3"/></td>
+            <td align="center"><input type="radio" name="OPN6" value="4"/></td>
+            <td align="center"><input type="radio" name="OPN6" value="5"/></td>
+            </tr>
+            <tr ><td>28. </td><td>I talk to a lot of different people at parties.</td>
+            <td align="center"><input type="radio" name="EXT7" value="1"/></td>
+            <td align="center"><input type="radio" name="EXT7" value="2"/></td>
+            <td align="center"><input type="radio" name="EXT7" value="3"/></td>
+            <td align="center"><input type="radio" name="EXT7" value="4"/></td>
+            <td align="center"><input type="radio" name="EXT7" value="5"/></td>
+            </tr>
+            <tr><td>29. </td><td>I am not really interested in others.</td>
+            <td align="center"><input type="radio" name="AGR7" value="1"/></td>
+            <td align="center"><input type="radio" name="AGR7" value="2"/></td>
+            <td align="center"><input type="radio" name="AGR7" value="3"/></td>
+            <td align="center"><input type="radio" name="AGR7" value="4"/></td>
+            <td align="center"><input type="radio" name="AGR7" value="5"/></td>
+            </tr>
+            <tr ><td>30. </td><td>I like order.</td>
+            <td align="center"><input type="radio" name="CSN7" value="1"/></td>
+            <td align="center"><input type="radio" name="CSN7" value="2"/></td>
+            <td align="center"><input type="radio" name="CSN7" value="3"/></td>
+            <td align="center"><input type="radio" name="CSN7" value="4"/></td>
+            <td align="center"><input type="radio" name="CSN7" value="5"/></td>
+            </tr>
+            <tr><td>31. </td><td>I change my mood a lot.</td>
+            <td align="center"><input type="radio" name="EST7" value="1"/></td>
+            <td align="center"><input type="radio" name="EST7" value="2"/></td>
+            <td align="center"><input type="radio" name="EST7" value="3"/></td>
+            <td align="center"><input type="radio" name="EST7" value="4"/></td>
+            <td align="center"><input type="radio" name="EST7" value="5"/></td>
+            </tr>
+            <tr ><td>32. </td><td>I am quick to understand things.</td>
+            <td align="center"><input type="radio" name="OPN7" value="1"/></td>
+            <td align="center"><input type="radio" name="OPN7" value="2"/></td>
+            <td align="center"><input type="radio" name="OPN7" value="3"/></td>
+            <td align="center"><input type="radio" name="OPN7" value="4"/></td>
+            <td align="center"><input type="radio" name="OPN7" value="5"/></td>
+            </tr>
+            <tr><td>33. </td><td>I don&#39;t like to draw attention to myself.</td>
+            <td align="center"><input type="radio" name="EXT8" value="1"/></td>
+            <td align="center"><input type="radio" name="EXT8" value="2"/></td>
+            <td align="center"><input type="radio" name="EXT8" value="3"/></td>
+            <td align="center"><input type="radio" name="EXT8" value="4"/></td>
+            <td align="center"><input type="radio" name="EXT8" value="5"/></td>
+            </tr>
+            <tr ><td>34. </td><td>I take time out for others.</td>
+            <td align="center"><input type="radio" name="AGR8" value="1"/></td>
+            <td align="center"><input type="radio" name="AGR8" value="2"/></td>
+            <td align="center"><input type="radio" name="AGR8" value="3"/></td>
+            <td align="center"><input type="radio" name="AGR8" value="4"/></td>
+            <td align="center"><input type="radio" name="AGR8" value="5"/></td>
+            </tr>
+            <tr><td>35. </td><td>I avoid/neglect my duties.</td>
+            <td align="center"><input type="radio" name="CSN8" value="1"/></td>
+            <td align="center"><input type="radio" name="CSN8" value="2"/></td>
+            <td align="center"><input type="radio" name="CSN8" value="3"/></td>
+            <td align="center"><input type="radio" name="CSN8" value="4"/></td>
+            <td align="center"><input type="radio" name="CSN8" value="5"/></td>
+            </tr>
+            <!--<tr ><td>I have frequent mood swings.</td>-->
+            <!--<td align="center"><input type="radio" name="EST8" value="1"/></td>-->
+            <!--<td align="center"><input type="radio" name="EST8" value="2"/></td>-->
+            <!--<td align="center"><input type="radio" name="EST8" value="3"/></td>-->
+            <!--<td align="center"><input type="radio" name="EST8" value="4"/></td>-->
+            <!--<td align="center"><input type="radio" name="EST8" value="5"/></td>-->
+            <!--</tr>-->
+            <!--<tr><td>I use difficult words.</td>-->
+            <!--<td align="center"><input type="radio" name="OPN8" value="1"/></td>-->
+            <!--<td align="center"><input type="radio" name="OPN8" value="2"/></td>-->
+            <!--<td align="center"><input type="radio" name="OPN8" value="3"/></td>-->
+            <!--<td align="center"><input type="radio" name="OPN8" value="4"/></td>-->
+            <!--<td align="center"><input type="radio" name="OPN8" value="5"/></td>-->
+            <!--</tr>-->
+            <!--<tr ><td>I don&#39;t mind being the center of attention.</td>-->
+            <!--<td align="center"><input type="radio" name="EXT9" value="1"/></td>-->
+            <!--<td align="center"><input type="radio" name="EXT9" value="2"/></td>-->
+            <!--<td align="center"><input type="radio" name="EXT9" value="3"/></td>-->
+            <!--<td align="center"><input type="radio" name="EXT9" value="4"/></td>-->
+            <!--<td align="center"><input type="radio" name="EXT9" value="5"/></td>-->
+            <!--</tr>-->
+            <tr><td>36. </td><td>I feel others&#39; emotions.</td>
+            <td align="center"><input type="radio" name="AGR9" value="1"/></td>
+            <td align="center"><input type="radio" name="AGR9" value="2"/></td>
+            <td align="center"><input type="radio" name="AGR9" value="3"/></td>
+            <td align="center"><input type="radio" name="AGR9" value="4"/></td>
+            <td align="center"><input type="radio" name="AGR9" value="5"/></td>
+            </tr>
+            <tr ><td>37. </td><td>I follow a schedule.</td>
+            <td align="center"><input type="radio" name="CSN9" value="1"/></td>
+            <td align="center"><input type="radio" name="CSN9" value="2"/></td>
+            <td align="center"><input type="radio" name="CSN9" value="3"/></td>
+            <td align="center"><input type="radio" name="CSN9" value="4"/></td>
+            <td align="center"><input type="radio" name="CSN9" value="5"/></td>
+            </tr>
+            <tr><td>38. </td><td>I get irritated easily.</td>
+            <td align="center"><input type="radio" name="EST9" value="1"/></td>
+            <td align="center"><input type="radio" name="EST9" value="2"/></td>
+            <td align="center"><input type="radio" name="EST9" value="3"/></td>
+            <td align="center"><input type="radio" name="EST9" value="4"/></td>
+            <td align="center"><input type="radio" name="EST9" value="5"/></td>
+            </tr>
+            <!--<tr ><td>I spend time reflecting on things.</td>-->
+            <!--<td align="center"><input type="radio" name="OPN9" value="1"/></td>-->
+            <!--<td align="center"><input type="radio" name="OPN9" value="2"/></td>-->
+            <!--<td align="center"><input type="radio" name="OPN9" value="3"/></td>-->
+            <!--<td align="center"><input type="radio" name="OPN9" value="4"/></td>-->
+            <!--<td align="center"><input type="radio" name="OPN9" value="5"/></td>-->
+            <!--</tr>-->
+            <!--<tr><td>I am quiet around strangers.</td>-->
+            <!--<td align="center"><input type="radio" name="EXT10" value="1"/></td>-->
+            <!--<td align="center"><input type="radio" name="EXT10" value="2"/></td>-->
+            <!--<td align="center"><input type="radio" name="EXT10" value="3"/></td>-->
+            <!--<td align="center"><input type="radio" name="EXT10" value="4"/></td>-->
+            <!--<td align="center"><input type="radio" name="EXT10" value="5"/></td>-->
+            <!--</tr>-->
+            <tr ><td>39. </td><td>I make people feel at ease.</td>
+            <td align="center"><input type="radio" name="AGR10" value="1"/></td>
+            <td align="center"><input type="radio" name="AGR10" value="2"/></td>
+            <td align="center"><input type="radio" name="AGR10" value="3"/></td>
+            <td align="center"><input type="radio" name="AGR10" value="4"/></td>
+            <td align="center"><input type="radio" name="AGR10" value="5"/></td>
+            </tr>
+            <!--<tr><td>I am exacting (exigent) in my work.</td>-->
+            <!--<td align="center"><input type="radio" name="CSN10" value="1"/></td>-->
+            <!--<td align="center"><input type="radio" name="CSN10" value="2"/></td>-->
+            <!--<td align="center"><input type="radio" name="CSN10" value="3"/></td>-->
+            <!--<td align="center"><input type="radio" name="CSN10" value="4"/></td>-->
+            <!--<td align="center"><input type="radio" name="CSN10" value="5"/></td>-->
+            <!--</tr>-->
+            <!--<tr ><td>I often feel sad.</td>-->
+            <!--<td align="center"><input type="radio" name="EST10" value="1"/></td>-->
+            <!--<td align="center"><input type="radio" name="EST10" value="2"/></td>-->
+            <!--<td align="center"><input type="radio" name="EST10" value="3"/></td>-->
+            <!--<td align="center"><input type="radio" name="EST10" value="4"/></td>-->
+            <!--<td align="center"><input type="radio" name="EST10" value="5"/></td>-->
+            <!--</tr>-->
+            <tr><td>40. </td><td>I am full of ideas.</td>
+            <td align="center"><input type="radio" name="OPN10" value="1"/></td>
+            <td align="center"><input type="radio" name="OPN10" value="2"/></td>
+            <td align="center"><input type="radio" name="OPN10" value="3"/></td>
+            <td align="center"><input type="radio" name="OPN10" value="4"/></td>
+            <td align="center"><input type="radio" name="OPN10" value="5"/></td>
+            </tr>
+
+
+
+            <tr>
+            <td colspan="6" align="right">
+            <br/>
+            <input type="hidden" name="user_id" value="{{user_id}}"/>
+            <input style="font-size:135%;" type="submit" value="Continue"/>
+
+            </td>
+            </tr>
+            </table>
+
+        </form>
+        </div>
+    </div>
+</div>
+<footer>
+    <hr>
+    <div class="container" style="text-align:justify">
+        <em class="text-muted" style="margin-bottom:1em;">
+            This project is supported by the Spanish project TIN2015-65464-R (MINECO/FEDER), and
+            the 2016FI B 01163 grant of Generalitat de Catalunya. We also gratefully acknowledge the support of NVIDIA
+            Corporation with the donation of a Tesla K40 GPU and a GTX TITAN GPU, used for this research.
+        </em>
+        <img style="width:100%;" src="static/logos/logos.jpg" />
+    </div>
+    <hr>
+</footer>
+</body>
+
+</html>
